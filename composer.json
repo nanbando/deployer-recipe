@@ -1,0 +1,11 @@
+{
+    "name": "nanbando/deployer-recipe",
+    "description": "Nanbando recipe for deployer",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "files": [
+            "autoload.php"
+        ]
+    }
+}

@@ -7,5 +7,8 @@
         "files": [
             "autoload.php"
         ]
+    },
+    "require-dev": {
+        "deployer/deployer": "^5.1"
     }
 }

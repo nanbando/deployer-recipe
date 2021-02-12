@@ -23,7 +23,7 @@ task('nanbando:plugins:install', function () {
     }
 
     run('cd {{current_path}} && {{bin/php}} {{bin/nanbando}} plugins:install');
-})->desc('Reconfigure nanbando');
+})->desc('nanbando plugins:install');
 
 task('nanbando:backup', function () {
     if (!get('nanbando_enabled')) {
@@ -31,7 +31,7 @@ task('nanbando:backup', function () {
     }
 
     run('cd {{current_path}} && {{bin/php}} {{bin/nanbando}} backup {{nanbando_backup_options}}');
-})->desc('Create backup');
+})->desc('nanbando backup');
 
 task('nanbando:push', function () {
     if (!get('nanbando_push') || !get('nanbando_enabled')) {
@@ -39,8 +39,8 @@ task('nanbando:push', function () {
     }
 
     run('cd {{current_path}} && {{bin/php}} {{bin/nanbando}} push');
-})->desc('Push backup to remote storage');
+})->desc('nanbando push');
 
-before('nanbando:backup', 'nanbando:reconfigure');
+before('nanbando:backup', 'nanbando:plugins:install');
 after('nanbando:backup', 'nanbando:push');
 before('deploy:prepare', 'nanbando:backup');

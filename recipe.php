@@ -17,12 +17,12 @@ set('nanbando_enabled', function () {
     return 0 < count($releases);
 });
 
-task('nanbando:reconfigure', function () {
+task('nanbando:plugins:install', function () {
     if (!get('nanbando_enabled')) {
         return;
     }
 
-    run('cd {{current_path}} && {{bin/php}} {{bin/nanbando}} reconfigure');
+    run('cd {{current_path}} && {{bin/php}} {{bin/nanbando}} plugins:install');
 })->desc('Reconfigure nanbando');
 
 task('nanbando:backup', function () {
